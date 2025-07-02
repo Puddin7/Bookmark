@@ -1,218 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Top Free Game Download Sites</title>
-  <style>
-    :root {
-      --primary: #007BFF;
-      --background: #f9f9f9;
-      --text: #333;
-      --header-bg: #fff;
-      --footer-bg: #f1f1f1;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--background);
-      color: var(--text);
-    }
-
-    header {
-      background: var(--header-bg);
-      padding: 2rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    p.subtitle {
-      color: #666;
-      margin-top: 5px;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      overflow-x: auto;
-    }
-
-    th, td {
-      text-align: left;
-      padding: 12px 15px;
-      border-bottom: 1px solid #eee;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    tr:hover {
-      background-color: #f9f9f9;
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .category-section {
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-      background: #fff;
-      padding: 1rem;
-    }
-    .category-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-    .link-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .link-list li {
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .copy-btn {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      padding: 2px 8px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      margin-left: 4px;
-    }
-    .copy-btn:hover {
-      background: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Manager - YarrList Style</title>
+    <link rel="icon" type="image/x-icon" href="https://yarrlist.com/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+        a {
+            color: #ffc300;
+        }
+        h1 a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+        h1 a:hover {
+            color: #ffc300;
+        }
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+        .title-container {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            height: 150px;
+            border: 2px solid #ffc300;
+            border-radius: 35px;
+            text-decoration: none;
+            color: #ffc300;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            background: rgba(255, 195, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(255, 195, 0, 0.5);
+        }
+        .button:hover {
+            background: #ffc300;
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0px 6px 15px rgba(255, 195, 0, 0.7);
+        }
+        .button i {
+            font-size: 2.5rem;
+            margin-right: 10px;
+        }
+        .add-link-form {
+            margin: 30px auto 0 auto;
+            max-width: 400px;
+            background: #181818;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(255, 195, 0, 0.1);
+        }
+        .add-link-form input, .add-link-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ffc300;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #222;
+            color: #fff;
+        }
+        .add-link-form button {
+            background: #ffc300;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .add-link-form button:hover {
+            background: #ffd700;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Personal Bookmark Manager</h1>
-    <p class="subtitle">Save and organize all your favorite links in folders. Share easily!</p>
-  </header>
-  <div class="container">
-    <form id="addLinkForm" autocomplete="off" style="margin-bottom:2rem;">
-      <input type="text" id="linkTitle" placeholder="Title (e.g. YouTube, Govt Portal)" required style="margin-bottom:8px;" />
-      <input type="url" id="linkURL" placeholder="URL (https://...)" required style="margin-bottom:8px;" />
-      <select id="linkCategory" required style="margin-bottom:8px;">
-        <option value="">Select Category</option>
-        <option>Movies</option>
-        <option>Games</option>
-        <option>Tools</option>
-        <option>Software</option>
-        <option>Govt Portal</option>
-        <option>Apps</option>
-        <option>APK</option>
-        <option>iOS</option>
-        <option>Other</option>
-      </select>
-      <button type="submit" style="background:var(--primary);color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;">Add Link</button>
+    <div class="header">
+        <div class="title-container">
+            <h1><a href="#">Bookmark Manager</a></h1>
+            <p>Save and organize your favorite links, YarrList style!</p>
+        </div>
+    </div>
+    <form id="addLinkForm" class="add-link-form" autocomplete="off">
+        <input type="text" id="linkTitle" placeholder="Title (e.g. YouTube, Govt Portal)" required />
+        <input type="url" id="linkURL" placeholder="URL (https://...)" required />
+        <select id="linkCategory" required>
+            <option value="">Select Category</option>
+            <option value="Movies"><i class='fas fa-film'></i> Movies</option>
+            <option value="Games"><i class='fas fa-gamepad'></i> Games</option>
+            <option value="Tools"><i class='fas fa-wrench'></i> Tools</option>
+            <option value="Software"><i class='fas fa-desktop'></i> Software</option>
+            <option value="Govt Portal"><i class='fas fa-university'></i> Govt Portal</option>
+            <option value="Apps"><i class='fas fa-mobile-alt'></i> Apps</option>
+            <option value="APK"><i class='fab fa-android'></i> APK</option>
+            <option value="iOS"><i class='fab fa-apple'></i> iOS</option>
+            <option value="Other"><i class='fas fa-ellipsis-h'></i> Other</option>
+        </select>
+        <button type="submit">Add Link</button>
     </form>
-    <input type="text" placeholder="Search links..." id="searchInput" />
-    <div id="bookmarks"></div>
-  </div>
-  <script>
-    // --- Bookmark Manager Logic ---
-    const form = document.getElementById('addLinkForm');
-    const titleInput = document.getElementById('linkTitle');
-    const urlInput = document.getElementById('linkURL');
-    const categoryInput = document.getElementById('linkCategory');
-    const bookmarksDiv = document.getElementById('bookmarks');
-    const searchInput = document.getElementById('searchInput');
+    <div class="container" id="bookmarks"></div>
+    <script>
+        // --- Bookmark Manager Logic ---
+        const form = document.getElementById('addLinkForm');
+        const titleInput = document.getElementById('linkTitle');
+        const urlInput = document.getElementById('linkURL');
+        const categoryInput = document.getElementById('linkCategory');
+        const bookmarksDiv = document.getElementById('bookmarks');
 
-    function getBookmarks() {
-      return JSON.parse(localStorage.getItem('bookmarks') || '{}');
-    }
-    function saveBookmarks(bookmarks) {
-      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    }
-    function renderBookmarks(filter = '') {
-      const bookmarks = getBookmarks();
-      bookmarksDiv.innerHTML = '';
-      Object.keys(bookmarks).forEach(category => {
-        const links = bookmarks[category].filter(link =>
-          link.title.toLowerCase().includes(filter) ||
-          link.url.toLowerCase().includes(filter)
-        );
-        if (links.length === 0) return;
-        const section = document.createElement('div');
-        section.className = 'category-section';
-        section.innerHTML = `<div class="category-title">${category}</div>`;
-        const ul = document.createElement('ul');
-        ul.className = 'link-list';
-        links.forEach(link => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${link.url}" target="_blank">${link.title}</a> <button class="copy-btn" data-url="${link.url}">Copy</button>`;
-          ul.appendChild(li);
+        // FontAwesome icons for categories
+        const categoryIcons = {
+            'Movies': '<i class="fas fa-film"></i>',
+            'Games': '<i class="fas fa-gamepad"></i>',
+            'Tools': '<i class="fas fa-wrench"></i>',
+            'Software': '<i class="fas fa-desktop"></i>',
+            'Govt Portal': '<i class="fas fa-university"></i>',
+            'Apps': '<i class="fas fa-mobile-alt"></i>',
+            'APK': '<i class="fab fa-android"></i>',
+            'iOS': '<i class="fab fa-apple"></i>',
+            'Other': '<i class="fas fa-ellipsis-h"></i>'
+        };
+
+        function getBookmarks() {
+            return JSON.parse(localStorage.getItem('bookmarks') || '{}');
+        }
+        function saveBookmarks(bookmarks) {
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        }
+        function renderBookmarks() {
+            const bookmarks = getBookmarks();
+            bookmarksDiv.innerHTML = '';
+            Object.keys(bookmarks).forEach(category => {
+                const links = bookmarks[category];
+                if (!links || links.length === 0) return;
+                const btn = document.createElement('a');
+                btn.className = 'button';
+                btn.href = links[0].url; // First link as main link
+                btn.target = '_blank';
+                btn.innerHTML = `${categoryIcons[category] || ''}<span>${category}</span>`;
+                btn.onclick = function(e) {
+                    e.preventDefault();
+                    showLinksModal(category, links);
+                };
+                bookmarksDiv.appendChild(btn);
+            });
+        }
+
+        function showLinksModal(category, links) {
+            let modal = document.getElementById('links-modal');
+            if (modal) modal.remove();
+            modal = document.createElement('div');
+            modal.id = 'links-modal';
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100vw';
+            modal.style.height = '100vh';
+            modal.style.background = 'rgba(0,0,0,0.85)';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.style.zIndex = '9999';
+            modal.innerHTML = `
+                <div style="background:#181818;padding:30px 20px;border-radius:20px;max-width:90vw;max-height:80vh;overflow:auto;text-align:left;min-width:300px;">
+                    <h2 style='color:#ffc300;text-align:center;'>${categoryIcons[category] || ''} ${category}</h2>
+                    <ul style='list-style:none;padding:0;'>
+                        ${links.map(link => `<li style='margin-bottom:15px;'><a href='${link.url}' target='_blank' style='color:#ffc300;font-size:1.1rem;'>${link.title}</a> <button onclick="navigator.clipboard.writeText('${link.url}');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1000);" style='background:#ffc300;color:black;border:none;padding:2px 8px;border-radius:4px;cursor:pointer;font-size:0.9rem;margin-left:8px;'>Copy</button></li>`).join('')}
+                    </ul>
+                    <button onclick="document.getElementById('links-modal').remove();" style='display:block;margin:20px auto 0 auto;background:#ffc300;color:black;border:none;padding:10px 30px;border-radius:8px;font-weight:bold;cursor:pointer;'>Close</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const title = titleInput.value.trim();
+            const url = urlInput.value.trim();
+            const category = categoryInput.value;
+            if (!title || !url || !category) return;
+            const bookmarks = getBookmarks();
+            if (!bookmarks[category]) bookmarks[category] = [];
+            bookmarks[category].push({ title, url });
+            saveBookmarks(bookmarks);
+            form.reset();
+            renderBookmarks();
         });
-        section.appendChild(ul);
-        bookmarksDiv.appendChild(section);
-      });
-    }
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const title = titleInput.value.trim();
-      const url = urlInput.value.trim();
-      const category = categoryInput.value;
-      if (!title || !url || !category) return;
-      const bookmarks = getBookmarks();
-      if (!bookmarks[category]) bookmarks[category] = [];
-      bookmarks[category].push({ title, url });
-      saveBookmarks(bookmarks);
-      form.reset();
-      renderBookmarks(searchInput.value.trim().toLowerCase());
-    });
-    bookmarksDiv.addEventListener('click', e => {
-      if (e.target.classList.contains('copy-btn')) {
-        const url = e.target.getAttribute('data-url');
-        navigator.clipboard.writeText(url);
-        e.target.textContent = 'Copied!';
-        setTimeout(() => { e.target.textContent = 'Copy'; }, 1000);
-      }
-    });
-    searchInput.addEventListener('input', e => {
-      renderBookmarks(e.target.value.trim().toLowerCase());
-    });
-    // Initial render
-    renderBookmarks();
-  </script>
+
+        // Initial render
+        renderBookmarks();
+    </script>
 </body>
+</html>
 </html>
