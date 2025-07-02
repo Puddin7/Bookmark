@@ -79,8 +79,140 @@
       text-decoration: none;
     }
 
+
     a:hover {
       text-decoration: underline;
     }
 
-    footer {
+    .category-section {
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      background: #fff;
+      padding: 1rem;
+    }
+    .category-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .link-list li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .copy-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 2px 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+    .copy-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Personal Bookmark Manager</h1>
+    <p class="subtitle">Save and organize all your favorite links in folders. Share easily!</p>
+  </header>
+  <div class="container">
+    <form id="addLinkForm" autocomplete="off" style="margin-bottom:2rem;">
+      <input type="text" id="linkTitle" placeholder="Title (e.g. YouTube, Govt Portal)" required style="margin-bottom:8px;" />
+      <input type="url" id="linkURL" placeholder="URL (https://...)" required style="margin-bottom:8px;" />
+      <select id="linkCategory" required style="margin-bottom:8px;">
+        <option value="">Select Category</option>
+        <option>Movies</option>
+        <option>Games</option>
+        <option>Tools</option>
+        <option>Software</option>
+        <option>Govt Portal</option>
+        <option>Apps</option>
+        <option>APK</option>
+        <option>iOS</option>
+        <option>Other</option>
+      </select>
+      <button type="submit" style="background:var(--primary);color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;">Add Link</button>
+    </form>
+    <input type="text" placeholder="Search links..." id="searchInput" />
+    <div id="bookmarks"></div>
+  </div>
+  <script>
+    // --- Bookmark Manager Logic ---
+    const form = document.getElementById('addLinkForm');
+    const titleInput = document.getElementById('linkTitle');
+    const urlInput = document.getElementById('linkURL');
+    const categoryInput = document.getElementById('linkCategory');
+    const bookmarksDiv = document.getElementById('bookmarks');
+    const searchInput = document.getElementById('searchInput');
+
+    function getBookmarks() {
+      return JSON.parse(localStorage.getItem('bookmarks') || '{}');
+    }
+    function saveBookmarks(bookmarks) {
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    }
+    function renderBookmarks(filter = '') {
+      const bookmarks = getBookmarks();
+      bookmarksDiv.innerHTML = '';
+      Object.keys(bookmarks).forEach(category => {
+        const links = bookmarks[category].filter(link =>
+          link.title.toLowerCase().includes(filter) ||
+          link.url.toLowerCase().includes(filter)
+        );
+        if (links.length === 0) return;
+        const section = document.createElement('div');
+        section.className = 'category-section';
+        section.innerHTML = `<div class="category-title">${category}</div>`;
+        const ul = document.createElement('ul');
+        ul.className = 'link-list';
+        links.forEach(link => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${link.url}" target="_blank">${link.title}</a> <button class="copy-btn" data-url="${link.url}">Copy</button>`;
+          ul.appendChild(li);
+        });
+        section.appendChild(ul);
+        bookmarksDiv.appendChild(section);
+      });
+    }
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const title = titleInput.value.trim();
+      const url = urlInput.value.trim();
+      const category = categoryInput.value;
+      if (!title || !url || !category) return;
+      const bookmarks = getBookmarks();
+      if (!bookmarks[category]) bookmarks[category] = [];
+      bookmarks[category].push({ title, url });
+      saveBookmarks(bookmarks);
+      form.reset();
+      renderBookmarks(searchInput.value.trim().toLowerCase());
+    });
+    bookmarksDiv.addEventListener('click', e => {
+      if (e.target.classList.contains('copy-btn')) {
+        const url = e.target.getAttribute('data-url');
+        navigator.clipboard.writeText(url);
+        e.target.textContent = 'Copied!';
+        setTimeout(() => { e.target.textContent = 'Copy'; }, 1000);
+      }
+    });
+    searchInput.addEventListener('input', e => {
+      renderBookmarks(e.target.value.trim().toLowerCase());
+    });
+    // Initial render
+    renderBookmarks();
+  </script>
+</body>
+</html>
